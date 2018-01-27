@@ -4,7 +4,7 @@
 
   </head>
   <body>
-	  <a id="a1" target="_blank">test</a>
+
    <video id="video" width="960" height="540" autoplay></video>
 
 <button id="snap">Snap Photo</button>
@@ -30,12 +30,7 @@ var video = document.getElementById('video');
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
 	context.drawImage(video, 0, 0, 960, 540);
-	//window.open(canvas.toDataURL(),'_blank');
-	var myWindow = window.open(canvas.toDataURL(),"_blank");
-	myWindow.focus();
-	
-	var a = document.getElementById('a1');
-	a1.href = canvas.toDataURL();
+
 
 });
 </script>
