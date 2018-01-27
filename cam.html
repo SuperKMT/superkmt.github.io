@@ -28,7 +28,9 @@ var video = document.getElementById('video');
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
 	context.drawImage(video, 0, 0, 960, 540);
-	window.open(canvas.toDataURL(),'_blank');
+	//window.open(canvas.toDataURL(),'_blank');
+	var myWindow = window.open(canvas.toDataURL(),"_blank");
+	myWindow.focus();
 });
 </script>
   </body>
