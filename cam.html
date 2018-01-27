@@ -5,6 +5,7 @@
   </head>
   <body>
    <video id="video" width="960" height="540" autoplay></video>
+<a id="a1"/>
 <button id="snap">Snap Photo</button>
 <canvas id="canvas" width="960" height="540"></canvas>
 <script>
@@ -31,7 +32,10 @@ document.getElementById("snap").addEventListener("click", function() {
 	//window.open(canvas.toDataURL(),'_blank');
 	var myWindow = window.open(canvas.toDataURL(),"_blank");
 	myWindow.focus();
-	alert(canvas.toDataURL());
+	
+	var a = document.getElementById('a1');
+	a1.href = canvas.toDataURL();
+
 });
 </script>
   </body>
