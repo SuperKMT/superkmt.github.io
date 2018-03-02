@@ -6,7 +6,7 @@
     <video id="video" width="960" height="540" autoplay></video>
     <button id="snap">Snap Photo</button>
     <canvas id="canvas" width="960" height="540"></canvas>
-    <a id="dl_link" target="_blank"></a>
+    <a id="dl_link" download="cam.png"></a>
 	
     <script>
         var video = document.getElementById('video');
@@ -27,7 +27,6 @@
             context.drawImage(video, 0, 0, 960, 540);
 	    document.getElementById('dl_link').href = canvas.toDataURL();
 	    document.getElementById('dl_link').click();
-		//download="cam.png"
         });
     </script>
 </body>
