@@ -25,7 +25,7 @@
         // Trigger photo take
         document.getElementById("snap").addEventListener("click", function () {
             context.drawImage(video, 0, 0, 960, 540);
-	    console.log(canvas.getContext('2d'));
+	    console.log(canvas.toDataURL());
         });
     </script>
 </body>
