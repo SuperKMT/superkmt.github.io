@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+</head>
+<body>
+    <video id="video" width="960" height="540" autoplay></video>
+    <button id="snap">Snap Photo</button>
+    <canvas id="canvas" width="960" height="540"></canvas>
+    <a download="cam.png"></a>
+	
+    <script>
+        var video = document.getElementById('video');
 
-  </head>
-  <body>
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+                video.src = window.URL.createObjectURL(stream);
+                video.play();
+            });
+        }
 
-   <video id="video" width="960" height="540" autoplay></video>
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var video = document.getElementById('video');
 
-<button id="snap">Snap Photo</button>
-<canvas id="canvas" width="960" height="540"></canvas>
-<script>
-
-var video = document.getElementById('video');
-
-// Get access to the camera!
-
-if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    // Not adding `{ audio: true }` since we only want video now
-    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
-        video.src = window.URL.createObjectURL(stream);
-        video.play();
-    });
-}
-
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
-var video = document.getElementById('video');
-
-// Trigger photo take
-document.getElementById("snap").addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 960, 540);
-
-
-});
-</script>
-  </body>
+        // Trigger photo take
+        document.getElementById("snap").addEventListener("click", function () {
+            context.drawImage(video, 0, 0, 960, 540);
+	    console.log(canvas.getContext('2d'));
+        });
+    </script>
+</body>
 </html>
 
 
